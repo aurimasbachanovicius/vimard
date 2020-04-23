@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.11)
+enable_language(ASM)
+
+cmake_minimum_required(VERSION 3.9)
 project("Vimard")
 set(PRODUCT_NAME Vimard)
 set(F_CPU 16000000)
@@ -19,7 +21,7 @@ add_definitions(-DF_CPU=${F_CPU} -DBAUD=${BAUD})
 set(CMAKE_EXE_LINKER_FLAGS -mmcu=${MCU})
 
 add_compile_options(-mmcu=${MCU} -c)
-file(GLOB SRC_FILES "src/*.c")
+file(GLOB SRC_FILES "src/*.*")
 
 add_executable(${PRODUCT_NAME} ${SRC_FILES})
 set_target_properties(${PRODUCT_NAME} PROPERTIES OUTPUT_NAME ${PRODUCT_NAME}.elf)

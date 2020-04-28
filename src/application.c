@@ -1,9 +1,5 @@
 #include "application.h"
 
-#define F_CPU 16000000
-#define BUAD    9600
-#define MYUBRR     ((F_CPU/16/BUAD) - 1)
-
 void USART_Init(unsigned int ubrr);
 
 void USART_Transmit(char data[]);
@@ -33,12 +29,6 @@ int loop() {
     }
 
     USART_Transmit("\n\r");
-
-//    char value[6] = PORTB;
-
-//    USART_Transmit("\n\r");
-//    USART_Transmit(value);
-//    USART_Transmit("Hello world!\n\r");
 
     return 1;
 }
